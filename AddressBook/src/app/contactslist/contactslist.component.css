@@ -1,0 +1,21 @@
+.contactslist{
+    margin: 1.25rem;
+}
+table{
+    margin-top: 1rem;
+}
+td{
+    width:19.375rem;
+    height:4.375rem;
+    border: 1px solid #CCCCCC;
+    padding-left: 1rem;
+}
+p{
+    margin: 0rem;
+}
+h2{
+    font-weight: 100;
+    font-size: 2rem;
+    margin-top: 0rem;
+    margin-bottom: 0rem;
+}

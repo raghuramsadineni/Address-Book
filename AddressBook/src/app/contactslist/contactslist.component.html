@@ -1,0 +1,12 @@
+<div class="contactslist">
+  <b>CONTACTS</b>
+  <table>
+    <tr *ngFor="let contact of displayContactsList" >
+      <td >
+          <h2>C{{contact.name}}</h2>
+          <p>{{contact.email}}</p>
+          <p>{{contact.mobile}}</p>
+      </td>
+    </tr>
+  </table>
+</div>
