@@ -1,5 +1,7 @@
 .contactslist{
     margin: 1.25rem;
+    height: max-content;
+    width: max-content;
 }
 table{
     margin-top: 1rem;
@@ -9,6 +11,7 @@ td{
     height:4.375rem;
     border: 1px solid #CCCCCC;
     padding-left: 1rem;
+    cursor: pointer;
 }
 p{
     margin: 0rem;

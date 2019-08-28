@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {Contact} from '../models/contact';
+import {ContactView} from '../models/contactview';
 import {ContactslistService} from '../services/contactslist.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-contactslist',
@@ -8,10 +9,15 @@ import {ContactslistService} from '../services/contactslist.service';
   styleUrls: ['./contactslist.component.css']
 })
 export class ContactslistComponent implements OnInit {
-  displayContactsList:Contact[];
-  constructor(private contactlist:ContactslistService) { }
+  displayContactsList:ContactView[];
+  constructor(private contactlist:ContactslistService,private router:Router) { }
 
   ngOnInit() {
     this.displayContactsList=this.contactlist.get()
+  }
+  goto(id:number)
+  {
+    this.contactlist.selectedContact(id);
+    this.router.navigate(['/info',id]);
   }
 }

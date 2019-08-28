@@ -1,0 +1,23 @@
+<div class="form">
+    <form [formGroup]="contactForm" (ngSubmit)="onSubmit(contactForm)">
+        <p><b>Name</b></p>
+        <input class="input1" type="text" id="name" formControlName="name">
+        <p><b>Email</b></p>
+        <input class="input1" type="text" id="email" formControlName="email">
+        <div style="float: left">
+            <p><b>Mobile</b></p>
+            <input class="input2" type="text" id="mobile" formControlName="mobile">
+        </div>
+        <div style="float:right">
+            <p ><b>Landline</b></p>
+            <input class="input2" type="text" id="landline" formControlName="landline">
+        </div>
+        <div style="float: left">
+        <p><b>Website</b></p>
+        <input class="input1" type="text" id="website" formControlName="website">
+        <p><b>Address</b></p>
+        <textarea class="input3" id="address" formControlName="address"></textarea>
+        <button type="submit" >Submit</button>
+        </div>
+    </form>
+</div>

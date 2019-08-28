@@ -1,0 +1,20 @@
+<div class="info">
+    <div class="colr">
+        <a (click)="edit()">
+            <img src="assets/edit1.jpg">
+             EDIT
+        </a>
+        <a (click)="delete()">
+            <img src="assets/delete1.png">
+            DELETE
+        </a>
+    </div>
+    <div class="col">
+        <h1>{{contact.name}}</h1>
+        <p>Email:{{contact.email}}</p>
+        <p style="margin-bottom: 0px">Mobile: {{contact.mobile}}</p>
+        <p style="margin-top: 0px">Landline: {{contact.landline}}</p>
+        <p>Website:{{contact.website}}</p>
+        <p>Address: {{contact.address}}</p>
+    </div>
+</div>
