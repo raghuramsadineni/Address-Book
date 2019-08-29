@@ -25,7 +25,7 @@ export class ContactoperationsService {
   contactList(){
     return contacts;
   }
-  edit(con:Contact){
-    contacts[con.id]=con;
+  edit(con:Contact,id:number){
+    contacts[id]=con;
   }
 }
