@@ -1,35 +1,44 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
+using System.Linq;
+using Microsoft.EntityFrameworkCore;
 using Models;
+using PetaPoco;
 
 namespace Services
 {
-    public class AddressBookServices : IAddressBookService
+    public class AddressBookServices : DbContext, IAddressBookService
     {
-        public void AddContact(Contact contact)
+        Database db;
+        Contact contact;
+        public AddressBookServices()
         {
-            throw new NotImplementedException();
+            this.db = new Database("Data Source=localhost\\SQLEXPRESS;Initial Catalog=AddressBook;Integrated Security=True", "System.Data.SqlClient");   
         }
 
-        public void DeleteContact(int id)
+        public void AddContact(Contact contact)
         {
-            throw new NotImplementedException();
+            this.db.Insert(contact);
+        }
+
+        public void DeleteContact(Contact contact)
+        {
+            this.db.Delete(contact);
         }
 
         public void EditContact(int id, Contact contact)
         {
-            throw new NotImplementedException();
+            this.db.Update(contact);
         }
 
         public Contact GetContact(int id)
         {
-            throw new NotImplementedException();
+
+            return db.Fetch<Contact>("select * from [dbo].[Contact] where id=" + id).FirstOrDefault();
         }
 
         public List<ContactView> GetContactList()
         {
-            throw new NotImplementedException();
+            return db.Fetch<ContactView>("select * from [dbo].[Contact]");
         }
     }
 }

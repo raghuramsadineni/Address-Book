@@ -11,6 +11,6 @@ namespace Services
         List<ContactView> GetContactList();
         Contact GetContact(int id);
         void EditContact(int id, Contact contact);
-        void DeleteContact(int id);
+        void DeleteContact(Contact contact);
     }
 }
