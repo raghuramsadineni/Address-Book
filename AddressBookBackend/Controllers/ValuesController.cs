@@ -38,9 +38,9 @@ namespace AddressBookBackend.Controllers
 
         // PUT api/values/5
         [HttpPut("{id}")]
-        public void Put(int id, Contact contact)
+        public void Put( Contact contact)
         {
-            addressBookService.EditContact(id, contact);
+            addressBookService.EditContact(contact.Id, contact);
         }
 
         // DELETE api/values/5

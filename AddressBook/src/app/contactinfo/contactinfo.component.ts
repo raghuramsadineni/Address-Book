@@ -16,13 +16,13 @@ export class ContactinfoComponent implements OnInit {
   ngOnInit() {
     this.contactlist.selectedcontact.subscribe(val =>{
       this.contact=val;
-    })
+    });
   }
   edit()
   {
     this.router.navigate(['edit']);
   }
   delete(){
-    this.con.delete(this.contact.id);
+    this.con.delete(this.contact);
   }
 }

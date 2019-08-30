@@ -1,31 +1,31 @@
 import { Injectable } from '@angular/core';
 import {Contact,contacts} from '../models/contact';
 import {ContactView} from '../models/contactview';
+import { HttpClient } from '@angular/common/http';
+import { ContactslistService } from './contactslist.service';
+
 @Injectable({
   providedIn: 'root'
 })
 export class ContactoperationsService {
 
-  constructor() { }
+  constructor(private http:HttpClient,private contactlistService:ContactslistService) { }
   add(con:Contact){
-    con.id=contacts[contacts.length-1].id+1
-    contacts.push(con);
+    this.http.post("https://localhost:44346/api/values",con).subscribe(res=>{
+      console.log("add");
+    });
   }
-  delete(id){
-    for (var li =contacts.length;li--;)
-    {
-      if(contacts[li].id==id)
-      {
-        contacts.splice(Number(li),1);
-        break;
-      }
-    }
-    console.log(contacts);
+  delete(con:Contact){
+    this.http.delete("https://localhost:44346/api/values/"+con.id).subscribe(res=>{
+      console.log("delete");
+    });
   }
   contactList(){
     return contacts;
   }
   edit(con:Contact,id:number){
-    contacts[id]=con;
+    this.http.put("https://localhost:44346/api/values/"+con.id,con).subscribe(res=>{
+      console.log("edit");
+    });
   }
 }
