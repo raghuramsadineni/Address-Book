@@ -14,8 +14,9 @@ export class ContactslistComponent implements OnInit {
   constructor(private contactlist:ContactslistService,private router:Router,private http:HttpClient) { }
 
   ngOnInit() {
-    this.http.get("https://localhost:44346/api/values").subscribe(val=>{
-      this.displayContactsList=<ContactView[]>val;
+    this.contactlist.get()
+    this.contactlist.conl.subscribe(res=>{
+      this.displayContactsList=res;
     });
   }
   goto(id:number)

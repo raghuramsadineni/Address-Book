@@ -18,6 +18,9 @@ export class ContactslistService {
     
    }
   get(){
+    this.http.get("https://localhost:44346/api/values").subscribe(val=>{
+      this.cl.next(<ContactView[]>val);
+    });
   }
   selectedContact(id:number){
     this.http.get("https://localhost:44346/api/values/"+id).subscribe(val=>{
